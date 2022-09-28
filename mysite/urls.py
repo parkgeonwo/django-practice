@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('polls/',include('polls.urls')),  # ~~/polls의 path를 파싱해서 polls의 url 연결 --> polls의 url.py
     path('admin/', admin.site.urls),
+    path('polls/',include('polls.urls')),  # ~~/polls의 path를 파싱해서 polls의 url 연결 --> polls의 url.py
+    path('account/', include('accountapp.urls')),  # ~/account/로 접속하면 accountapp.urls을 통해 그 안에서 다시 분기를 해라 
 ]
