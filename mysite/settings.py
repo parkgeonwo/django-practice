@@ -27,6 +27,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# 현재 파일의 위에위에 폴더를 base directory로 하겠다.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -138,3 +139,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# python manage.py collectstatic 을 실행했을 때 어디로 모이는지 지정해주는 경로
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')   
+
+#앱에 종속되어있지 않은 static 파일을 사용하기위해 경로를 지정해주기
+STATICFILES_DIRS = [
+    BASE_DIR/"static",
+]
